@@ -1,5 +1,16 @@
 import urllib
 import re
+from collections import namedtuple
+
+MyStruct = namedtuple("HeadphonesList", "title id priceList")
+
+
+lol = []
+lol.append(MyStruct("casca", "1", ["link1","200","lin2","300"]))
+lol.append(MyStruct("casca", "2", ["link1","200","lin2","300"]))
+
+#print lol
+
 
 for i in range(1,1):
     url = 'http://www.cel.ro/casti/0a-' + str(i)
@@ -45,17 +56,17 @@ for i in range(1,10):
     url = 'https://www.emag.ro/casti-pc/p' + str(i) + '/c'
     print url
     json = urllib.urlopen(url).read()
-    find = '<h4 class="productTitle"><a href="http://www.cel.ro/casti/'
+    find = '<a href="https://www.emag.ro/cas'
     flag = 1
     for j in range(0,80):
         aux = json.find(find)
-        json = json[(aux+58):]
+        json = json[(aux+32):]
         newurl = json[0:300]
-        final1 = '/"'
+        final1 = '" rel='
         aux1 = newurl.find(final1)
-        newurl = newurl[0:aux1] + '/'
+        newurl = newurl[0:aux1]
         #url = 'http://www.cel.ro/casti/casti-cu-microfon-sennheiser-pc-8-interfata-usb-pMCMwPT0n-l/'
-        url = 'http://www.cel.ro/casti/' + newurl
+        url = 'https://www.emag.ro/cas' + newurl
         print url
         json1 = urllib.urlopen(url).read()    
 
