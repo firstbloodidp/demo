@@ -24,3 +24,7 @@ insert = """
 INSERT INTO `headphoneslist` (`ID`, `Title`, `LinkCell`, `PriceCell`, `LinkEmag`, `PriceEmag`) 
 VALUES (NULL, '%s', '%s', '%s', '%s', '%s')
 """
+
+update = """
+UPDATE `headphoneslist` SET `LinkEmag` = '%s', `PriceEmag` = '%s' WHERE `headphoneslist`.`ID` = '%s'
+"""
