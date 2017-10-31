@@ -28,3 +28,7 @@ VALUES (NULL, '%s', '%s', '%s', '%s', '%s')
 update = """
 UPDATE `headphoneslist` SET `LinkEmag` = '%s', `PriceEmag` = '%s' WHERE `headphoneslist`.`ID` = '%s'
 """
+
+search = """
+SELECT ID FROM headphoneslist WHERE Title LIKE '%s'
+"""
